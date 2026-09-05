@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Саша Дубов | Design Director</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --bg-color: #f9fafb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --accent: #111827;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        /* Стили для блока с фото и заголовками */
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .header-titles {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 600px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        p.summary {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            max-width: 850px;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a, .contact-links span {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-links a:hover {
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .job {
+            margin-bottom: 35px;
+        }
+        
+        .job:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        .job-date {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .job-company {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+        
+        li a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        li a:hover {
+            color: #6b7280;
+        }
+
+        .previous-positions {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .skill-category h3 {
+            font-size: 1.05rem;
+            color: var(--accent);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .skill-category p {
+            font-size: 0.95rem;
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item strong {
+            color: var(--text-main);
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header & Summary -->
+        <header>
+            <div class="header-top">
+                <img src="2026-03-04 15-02-07.PNG" alt="Саша Дубов" class="profile-photo">
+                <div class="header-titles">
+                    <h1>Саша Дубов</h1>
+                    <h2>Design Director / Дизайн-директор ВсеИнструменты.ру</h2>
+                </div>
+            </div>
+            
+            <p class="summary">
+                Системный дизайн-директор с 17-летним опытом в E-commerce. Специализируюсь на управлении кросс-функциональными командами, автоматизации дизайн-процессов (DesignOps), Product Discovery и CX. Трансформирую дизайн в измеримую бизнес-эффективность.<br><br>
+                Построил с нуля автономную команду, корпоративную дизайн-систему (VIsion) для B2B/B2C витрин и внутренних продуктов (WMS, CRM, ARM и др.), конвейер диджитал-маркетинговых активностей, процесс сбора CX-метрик в реальном времени, а также системный подход к внедрению AI. Создал кастомный шрифт с TypeType и бренд-систему с отделом коммуникационного дизайна.
+            </p>
+            
+            <div class="contact-links">
+                <a href="mailto:mr@alexdubov.ru">mr@alexdubov.ru</a>
+                <a href="https://t.me/Voodoodread" target="_blank">tg: @Voodoodread</a>
+                <span>тел: <a href="tel:+79209333382">+7 920 933 33 82</a>, <a href="tel:+79209333381">+7 920 933 33 81</a></span>
+            </div>
+        </header>
+
+        <!-- Experience Section -->
+        <section>
+            <h2 class="section-title">Опыт работы</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <h3 class="job-title"><span class="job-company">ООО «ВсеИнструменты.ру»</span> — Design Director</h3>
+                    <span class="job-date">05.2020 — Настоящее время</span>
+                </div>
+                <ul>
+                    <li><strong>DesignOps и AI-автоматизация:</strong> За Q3 2026 сократил Time-to-Market (дизайн + фронтенд) продуктовой разработки более чем на 30% за счет внедрения системной агентской разработки, создания MCP дизайн-системы и ее интеграции с Figma MCP. Сократил время реализации маркетинговых активностей на 20% благодаря оптимизации процессов запуска рекламных кампаний и созданию кастомных плагинов.</li>
+                    <li><strong>Разработка Design System:</strong> Ускорил фронтенд-разработку и обеспечил консистентный UI/UX, с нуля спроектировав и внедрив дизайн-систему на внешние витрины и пул внутренних платформ компании (WMS, CRM, ARM).</li>
+                    <li><strong>Бренд-дизайн и визуальная дифференциация:</strong> В Q3 2025 создал уникальный корпоративный шрифт VI Sans (совместно со студией TypeType), в Q2 2026 выпустил MVP <a href="https://brand.vseinstrumenti.ru/design-segmentation" target="_blank" rel="noopener noreferrer">новой бренд-системы</a> совместно с отделом графического дизайна, что усилило узнаваемость бренда и оптимизировало косты компании на лицензирование.</li>
+                    <li><strong>Customer Experience (CX) и Product Discovery:</strong> Выстроил регулярный процесс сбора обратной связи и валидации продуктовых гипотез через глубинные интервью, количественные опросы на ключевых этапах воронки и UX-тестирования на платформе Passway, кратно снизив количество продуктовых ошибок.</li>
+                    <li><strong>Коммерческий импакт и маркетинг:</strong> Совместно с командой обеспечил развитие лучшей онлайн-платформы в сегменте DIY для бизнеса (выручка за 2025 г. — 182,9 млрд руб.). Сгенерировал более 3 млрд рублей чистой прибыли за прошлый год, выстроив процессы визуальной реализации медиапланов для трейд-маркетинга силами кросс-функциональной команды из 50 человек.</li>
+                    <li><strong>People Management:</strong> За последние полгода повысил уровень хард-скиллов в отделе на 35%, улучшив матрицу компетенций и грейдов, внедрив систему кросс-ревью и регулярный контроль индивидуальных планов развития (ИПР).</li>
+                </ul>
+                <div class="previous-positions">
+                    (Предыдущие позиции: в компании с 2009 года, прошел путь от менеджера по продажам (2 мес) и Product Designer (5 лет) до Art Director (7 лет), отвечая за запуск сайтов-сателлитов и управление визуальной частью продукта и др.)
+                </div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 35px 0;">
+
+            <div class="job">
+                <div class="job-header">
+                    <h3 class="job-title"><span class="job-company">Duo Sapiens</span> — Ментор</h3>
+                    <span class="job-date">2024 — Настоящее время</span>
+                </div>
+                <ul>
+                    <li>Помогаю лидам, арт-директорам и дизайн-директорам системно прокачивать управленческие навыки, рефлексировать опыт и масштабировать профессиональные компетенции.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2 class="section-title">Ключевые навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Менеджмент и процессы</h3>
+                    <p>DesignOps, Change Management, Stakeholder Management, OKR, Capacity planning, построение матриц компетенций для грейдирования, ИПР, менторинг, Performance Review, People Management.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Продукт и исследования</h3>
+                    <p>Product Discovery, UX/UI design, CX / EX (Employee Experience), CustDev (глубинные интервью), AB тестирование, CJM (Customer Journey Map), проектирование внутренних ERP/CRM/WMS систем, развитие e-commerce продукта.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Технологии и инструменты</h3>
+                    <p>Разработка Design System, AI Automation, Figma (Figma MCP, Weave, самописные плагины), Passway, Jira, Confluence, Notion, UX Feedback, типографика (разработка кастомных шрифтов).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2 class="section-title">Образование</h2>
+            <div class="education-item">
+                <strong>2023</strong> — MBA
+            </div>
+            <div class="education-item">
+                <strong>2020</strong> — Британская высшая школа дизайна (БВШД) — UX/UI-дизайн
+            </div>
+            <div class="education-item">
+                <strong>2005–2014</strong> — КГТА — Управление и информатика (1-е высшее), Экономика и управление (2-е высшее), САПР (аспирантура)
+            </div>
+        </section>
+    </div>
+</body>
+</html>
